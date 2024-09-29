@@ -23,6 +23,7 @@ public class ModItems {
     public static final Item FENT = registerItem("fent", new FentItem(new Item.Settings()));
 
     public static final Item CRACK_PIPE = registerItem("crack_pipe", new CrackPipe(new Item.Settings()));
+    public static final Item DIRTY_CRACK_PIPE = registerItem("dirty_crack_pipe", new DirtyCrackPipe(new Item.Settings()));
 
     private static Item registerItem(String name,Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(FentMod.MOD_ID, name), item);

@@ -24,21 +24,16 @@ public class CrackPipe extends Item {
         super(settings);
     }
 
-    //@Override
-    //public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-    //    super.finishUsing(stack, world, user);
-
-    //    return stack;
-    //}
-
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         boolean usable = stack.getOrDefault(ModComponents.CRACK_PIPE_USEABLE, true);
         int currentCount = stack.getOrDefault(ModComponents.CRACK_PIPE_COUNT, 0);
         if (currentCount >= MAX_USES) {
             //replace with broken pipe
+            decrementCrack(user);
             stack.decrement(100);
-            return stack;
+
+            return new ItemStack(ModItems.DIRTY_CRACK_PIPE);
         }
 
         if (!usable) { return stack; }
@@ -49,6 +44,7 @@ public class CrackPipe extends Item {
             stack.set(ModComponents.CRACK_PIPE_COUNT, currentCount);
         }
 
+        decrementCrack(user);
 
         return stack;
     }
@@ -73,8 +69,6 @@ public class CrackPipe extends Item {
 
         boolean hasCrack = user.getInventory().main.stream().anyMatch(stack -> stack.isOf(ModItems.COCAINE));
         if (hasCrack) {
-            ItemStack crackStack = user.getInventory().main.stream().findFirst().get();
-            crackStack.decrement(1);
             //currentCount++;
             //pipeStack.set(ModComponents.CRACK_PIPE_COUNT, currentCount);
             pipeStack.set(ModComponents.CRACK_PIPE_USEABLE, true);
@@ -83,6 +77,13 @@ public class CrackPipe extends Item {
         }
 
         return item;
+    }
+
+    public static void decrementCrack(LivingEntity user) {
+        if (user instanceof PlayerEntity player ) {
+            ItemStack crackStack = player.getInventory().main.stream().findFirst().get();
+            crackStack.decrement(1);
+        }
     }
 
 }
