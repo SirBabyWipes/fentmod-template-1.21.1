@@ -47,7 +47,7 @@ public class JointItem extends Item {
 
     @Override
     public UseAction getUseAction(ItemStack stack) {
-        return UseAction.DRINK;
+        return UseAction.BOW;
     }
 
     @Override
