@@ -1,9 +1,13 @@
 {
   "item.fentmod.weed": "Weed",
   "item.fentmod.grinder": "Grinder",
-  "item.fentmod.cocaine": "cocaine",
+  "item.fentmod.cocaine": "Cocaine",
+  "item.fentmod.joint": "Joint",
+  "item.fentmod.bongfull": "Bong",
+  "item.fentmod.bongempty": "Bong",
 
-  "block.fentmod.cocaine_block": "brick of Cocaine",
+
+  "block.fentmod.cocaine_block": "Brick of Cocaine",
 
   "itemgroup.fentmod.mod_items": "FentMod Items"
 }

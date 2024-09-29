@@ -20,6 +20,9 @@ public class ModGroups {
                         entries.add(ModItems.GRINDER);
                         entries.add(ModItems.COCAINE);
                         entries.add(ModBlocks.COCAINE_BLOCK);
+                        entries.add(ModItems.JOINT);
+                        entries.add(ModItems.BONGFULL);
+                        entries.add(ModItems.BONGEMPTY);
                     }).build());
 
 
