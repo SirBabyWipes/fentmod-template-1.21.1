@@ -8,8 +8,10 @@ import net.minecraft.util.Identifier;
 
 public class ModEffects {
     public static StatusEffect FENT;
+    public static StatusEffect WEED;
 
     public static void init() {
         FENT = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "overdose"), new FentHigh());
+        WEED = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "overdose"), new WeedHigh());
     }
 }

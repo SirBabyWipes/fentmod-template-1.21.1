@@ -14,12 +14,12 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     public static final Item WEED = registerItem("weed", new Item(new Item.Settings()));
     public static final Item GRINDER = registerItem("grinder", new Item(new Item.Settings()));
-    public static final Item COCAINE = registerItem("cocaine", new Item(new Item.Settings()));
     public static final Item BONGEMPTY = registerItem("bongempty", new Item(new Item.Settings()));
     public static final Item GROUNDWEED = registerItem("groundweed", new Item(new Item.Settings()));
 
     public static final Item JOINT = registerItem("joint", new JointItem(new Item.Settings()));
     public static final Item BONGFULL = registerItem("bongfull", new BongFullItem(new Item.Settings()));
+    public static final Item COCAINE = registerItem("cocaine", new CocaineItem(new Item.Settings()));
 
     public static final Item FENT = registerItem("fent", new FentItem(new Item.Settings()));
 
