@@ -1,6 +1,5 @@
 package net.lilbabywipes.fentmod.item.custom;
 
-import net.lilbabywipes.fentmod.item.ModItems;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -10,7 +9,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
-import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -20,10 +18,10 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
-public class BongFullItem extends Item {
-    private static final int MAX_USE_TIME = 80;
+public class CocaineItem extends Item {
+    private static final int MAX_USE_TIME = 7;
 
-    public BongFullItem(Settings settings) {
+    public CocaineItem(Settings settings) {
         super(settings);
     }
 
@@ -36,25 +34,14 @@ public class BongFullItem extends Item {
         }
 
         if (!world.isClient) {
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 1200, 2));
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 300, 2));
         }
-
-        if (user instanceof PlayerEntity playerEntity && !playerEntity.isCreative()) {
-            stack.decrement(1);
-
-            if (!stack.isEmpty()) {
-                ItemStack emptyBong = new ItemStack(ModItems.BONGEMPTY);
-                if (!playerEntity.getInventory().insertStack(emptyBong)) {
-                    playerEntity.dropItem(emptyBong, false);
-                }
-            }
-        }
-        return stack.isEmpty() ? new ItemStack(ModItems.BONGEMPTY) : stack;
+        return stack;
 
     }
     @Override
     public int getMaxUseTime(ItemStack stack, LivingEntity user) {
-        return 80;
+        return 7;
     }
 
     @Override

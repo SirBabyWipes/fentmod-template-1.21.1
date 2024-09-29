@@ -1,5 +1,6 @@
 package net.lilbabywipes.fentmod.item.custom;
 
+import net.lilbabywipes.fentmod.item.ModItems;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -36,9 +37,10 @@ public class JointItem extends Item {
         if (!world.isClient) {
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 300, 0));
         }
-
+        if (user instanceof PlayerEntity playerEntity && !playerEntity.isCreative()) {
+            stack.decrement(1);
+        }
         return stack;
-
     }
     @Override
     public int getMaxUseTime(ItemStack stack, LivingEntity user) {
@@ -47,7 +49,7 @@ public class JointItem extends Item {
 
     @Override
     public UseAction getUseAction(ItemStack stack) {
-        return UseAction.BOW;
+        return UseAction.DRINK;
     }
 
     @Override
