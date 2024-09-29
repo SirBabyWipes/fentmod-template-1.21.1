@@ -3,6 +3,7 @@ package net.lilbabywipes.fentmod.item;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.lilbabywipes.fentmod.FentMod;
 import net.lilbabywipes.fentmod.item.custom.BongFullItem;
+import net.lilbabywipes.fentmod.item.custom.FentItem;
 import net.lilbabywipes.fentmod.item.custom.JointItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -20,6 +21,8 @@ public class ModItems {
 
     public static final Item JOINT = registerItem("joint", new JointItem(new Item.Settings()));
     public static final Item BONGFULL = registerItem("bongfull", new BongFullItem(new Item.Settings()));
+
+    public static final Item FENT = registerItem("fent", new FentItem(new Item.Settings()));
 
     private static Item registerItem(String name,Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(FentMod.MOD_ID, name), item);

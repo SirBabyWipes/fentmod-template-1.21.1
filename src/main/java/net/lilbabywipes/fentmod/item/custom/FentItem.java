@@ -1,6 +1,16 @@
 package net.lilbabywipes.fentmod.item.custom;
 
+import net.lilbabywipes.fentmod.effects.FentHigh;
+import net.lilbabywipes.fentmod.effects.ModEffects;
 import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import net.minecraft.command.argument.EntityAnchorArgumentType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -16,48 +26,36 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class JointItem extends Item {
-    private static final int MAX_USE_TIME = 40;
-
-    public JointItem(Settings settings) {
-        super(settings);
-    }
+public class FentItem extends Item {
+    public FentItem(Settings settings) { super(settings); }
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         super.finishUsing(stack, world, user);
-        if (user instanceof ServerPlayerEntity serverPlayerEntity) {
-            Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
-            serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
-        }
-
         if (!world.isClient) {
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 300, 0));
+            user.addStatusEffect(
+                    new StatusEffectInstance(
+                        Registries.STATUS_EFFECT.getEntry(ModEffects.FENT),
+                        1000,
+                        0
+                    )
+            );
         }
 
         return stack;
-
-    }
-    @Override
-    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
-        return 40;
     }
 
     @Override
-    public UseAction getUseAction(ItemStack stack) {
+    public UseAction getUseAction(ItemStack stack){
         return UseAction.DRINK;
     }
 
     @Override
-    public SoundEvent getDrinkSound() {
-        return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
-    }
-
-    @Override
-    public SoundEvent getEatSound() {
-        return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
+    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
+        return 40;
     }
 
     @Override

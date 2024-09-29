@@ -23,6 +23,7 @@ public class ModGroups {
                         entries.add(ModItems.JOINT);
                         entries.add(ModItems.BONGFULL);
                         entries.add(ModItems.BONGEMPTY);
+                        entries.add(ModItems.FENT);
                     }).build());
 
 
