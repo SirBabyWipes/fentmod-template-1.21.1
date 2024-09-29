@@ -4,7 +4,8 @@
   "item.fentmod.cocaine": "Cocaine",
   "item.fentmod.joint": "Joint",
   "item.fentmod.bongfull": "Bong",
-  "item.fentmod.bongempty": "Bong",
+  "item.fentmod.bongempty": "Empty Bong",
+  "item.fentmod.groundweed": "Ms.MaryJane",
 
 
   "block.fentmod.cocaine_block": "Brick of Cocaine",
