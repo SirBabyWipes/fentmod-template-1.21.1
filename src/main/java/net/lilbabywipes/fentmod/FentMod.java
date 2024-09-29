@@ -3,6 +3,7 @@ package net.lilbabywipes.fentmod;
 import net.fabricmc.api.ModInitializer;
 
 import net.lilbabywipes.fentmod.block.ModBlocks;
+import net.lilbabywipes.fentmod.component.ModComponents;
 import net.lilbabywipes.fentmod.effects.ModEffects;
 import net.lilbabywipes.fentmod.item.ModItems;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ public class FentMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModComponents.initalize();
 		ModEffects.init();
 		ModGroups.registerItemGroup();
 		ModItems.registerModItems();

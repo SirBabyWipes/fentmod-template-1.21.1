@@ -24,6 +24,7 @@ public class ModGroups {
                         entries.add(ModItems.BONGFULL);
                         entries.add(ModItems.BONGEMPTY);
                         entries.add(ModItems.FENT);
+                        entries.add(ModItems.CRACK_PIPE);
                     }).build());
 
 

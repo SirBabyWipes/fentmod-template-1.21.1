@@ -14,6 +14,12 @@ public class FentHigh extends StatusEffect {
         if(!pLivingEntity.getWorld().isClient) {
             //pLivingEntity.setSneaking(true);
             pLivingEntity.heal(10);
+
+            long currentTime = pLivingEntity.getWorld().getTime();
+            if (currentTime % 40 == 0) {
+                pLivingEntity.setVelocity(getRandomOffset(), 0, getRandomOffset());
+                pLivingEntity.velocityModified = true;
+            }
         }
 
         return super.applyUpdateEffect(pLivingEntity, pAmplifier);
@@ -21,4 +27,10 @@ public class FentHigh extends StatusEffect {
 
     @Override
     public boolean canApplyUpdateEffect(int pDuration, int pAmplifirer) { return true; }
+
+    private static double min = -0.25;
+    private static double max = 0.25;
+    private static double getRandomOffset() {
+        return min + Math.random() * (max - min);
+    }
 }
