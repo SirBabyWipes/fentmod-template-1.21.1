@@ -18,7 +18,8 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COCAINE_BLOCK);
+        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COCAINE_BLOCK);
+        blockStateModelGenerator.registerWoolAndCarpet(ModBlocks.COCAINE_BLOCK, ModBlocks.COCAINE_CARPET_BLOCK);
 
         blockStateModelGenerator.registerCrop(ModBlocks.WEED_CROP, WeedCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.COCA_CROP, WeedCropBlock.AGE, 0, 1, 2, 3, 4);

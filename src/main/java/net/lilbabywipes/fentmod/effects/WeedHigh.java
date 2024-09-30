@@ -14,7 +14,7 @@ public class WeedHigh extends StatusEffect {
     @Override
     public boolean applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
         if(!pLivingEntity.getWorld().isClient) {
-
+            
             long currentTime = pLivingEntity.getWorld().getTime();
             if (currentTime % 40 == 0) {
 

@@ -34,7 +34,8 @@ public class CocaineItem extends Item {
         }
 
         if (!world.isClient) {
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 300, 2));
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 5*20, 4));
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 5*20, 4));
         }
         return stack;
 

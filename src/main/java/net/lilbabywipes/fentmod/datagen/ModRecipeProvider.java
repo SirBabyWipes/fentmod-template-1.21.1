@@ -24,7 +24,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.COCAINE, RecipeCategory.DECORATIONS, ModBlocks.COCAINE_BLOCK);
+        //offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.COCAINE, RecipeCategory.DECORATIONS, ModBlocks.COCAINE_BLOCK);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BONGEMPTY, 1)
                 .pattern("# #")
