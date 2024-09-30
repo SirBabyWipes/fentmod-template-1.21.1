@@ -2,7 +2,9 @@ package net.lilbabywipes.fentmod.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.lilbabywipes.fentmod.FentMod;
+import net.lilbabywipes.fentmod.block.ModBlocks;
 import net.lilbabywipes.fentmod.item.custom.*;
+import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
@@ -25,6 +27,11 @@ public class ModItems {
 
     public static final Item CRACK_PIPE = registerItem("crack_pipe", new CrackPipe(new Item.Settings()));
     public static final Item DIRTY_CRACK_PIPE = registerItem("dirty_crack_pipe", new DirtyCrackPipe(new Item.Settings()));
+
+    public static final Item WEED_SEEDS = registerItem("weed_seeds",
+            new AliasedBlockItem(ModBlocks.WEED_CROP, new Item.Settings()));
+
+
 
     private static Item registerItem(String name,Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(FentMod.MOD_ID, name), item);
