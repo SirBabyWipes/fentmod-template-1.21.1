@@ -2,22 +2,18 @@ package net.lilbabywipes.fentmod.item.custom;
 
 import net.lilbabywipes.fentmod.component.ModComponents;
 import net.lilbabywipes.fentmod.item.ModItems;
-import net.lilbabywipes.fentmod.utils;
+import net.lilbabywipes.fentmod.utils.utils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
-import net.minecraft.text.TextContent;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
-
-import java.util.Optional;
 
 public class CrackPipe extends Item {
     public static int MAX_USES = 2;

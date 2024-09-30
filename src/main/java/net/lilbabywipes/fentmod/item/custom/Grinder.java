@@ -1,23 +1,15 @@
 package net.lilbabywipes.fentmod.item.custom;
 
-import net.fabricmc.fabric.impl.object.builder.FabricEntityTypeImpl;
 import net.lilbabywipes.fentmod.item.ModItems;
-import net.lilbabywipes.fentmod.utils;
+import net.lilbabywipes.fentmod.utils.utils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-
-import javax.swing.text.html.Option;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
 
 public class Grinder extends Item {
 
