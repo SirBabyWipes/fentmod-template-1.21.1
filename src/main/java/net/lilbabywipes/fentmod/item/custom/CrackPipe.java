@@ -2,6 +2,7 @@ package net.lilbabywipes.fentmod.item.custom;
 
 import net.lilbabywipes.fentmod.component.ModComponents;
 import net.lilbabywipes.fentmod.item.ModItems;
+import net.lilbabywipes.fentmod.utils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -81,7 +82,7 @@ public class CrackPipe extends Item {
 
     public static void decrementCrack(LivingEntity user) {
         if (user instanceof PlayerEntity player ) {
-            ItemStack crackStack = player.getInventory().main.stream().findFirst().get();
+            ItemStack crackStack = utils.getItemFromInventory(((PlayerEntity) user).getInventory(), ModItems.COCAINE).get();
             crackStack.decrement(1);
         }
     }

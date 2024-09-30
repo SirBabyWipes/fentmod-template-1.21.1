@@ -28,6 +28,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BONGEMPTY, Models.GENERATED);
         itemModelGenerator.register(ModItems.BONGFULL, Models.GENERATED);
         itemModelGenerator.register(ModItems.CRACK_PIPE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIRTY_CRACK_PIPE, Models.GENERATED);
         itemModelGenerator.register(ModItems.FENT, Models.GENERATED);
         itemModelGenerator.register(ModItems.GRINDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.GROUNDWEED, Models.GENERATED);

@@ -47,12 +47,5 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', Items.IRON_INGOT)
                 .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
                 .offerTo(exporter);
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GROUNDWEED, 1)
-                .input(ModItems.GRINDER)
-                .input(ModItems.WEED)
-                .criterion(hasItem(ModItems.GRINDER), conditionsFromItem(ModItems.GRINDER))
-                .offerTo(exporter);
     }
-
 }

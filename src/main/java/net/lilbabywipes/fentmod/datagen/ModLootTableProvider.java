@@ -27,6 +27,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 StatePredicate.Builder.create()
                         .exactMatch(WeedCropBlock.AGE, 4)
         );
+
         addDrop(ModBlocks.WEED_CROP, cropDrops(ModBlocks.WEED_CROP, ModItems.WEED, ModItems.WEED_SEEDS, builder));
     }
 }

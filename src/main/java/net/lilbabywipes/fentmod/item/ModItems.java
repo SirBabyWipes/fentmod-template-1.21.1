@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
     public static final Item WEED = registerItem("weed", new Item(new Item.Settings()));
-    public static final Item GRINDER = registerItem("grinder", new Item(new Item.Settings()));
+    public static final Item GRINDER = registerItem("grinder", new Grinder(new Item.Settings()));
     public static final Item BONGEMPTY = registerItem("bongempty", new Item(new Item.Settings()));
     public static final Item GROUNDWEED = registerItem("groundweed", new Item(new Item.Settings()));
 
