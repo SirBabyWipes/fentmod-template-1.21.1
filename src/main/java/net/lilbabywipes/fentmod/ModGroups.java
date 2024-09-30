@@ -28,6 +28,7 @@ public class ModGroups {
                         entries.add(ModItems.CRACK_PIPE);
                         entries.add(ModItems.DIRTY_CRACK_PIPE);
                         entries.add(ModItems.WEED_SEEDS);
+                        entries.add(ModItems.COCA_SEEDS);
                     }).build());
 
 

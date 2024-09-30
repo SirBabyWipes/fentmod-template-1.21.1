@@ -3,6 +3,7 @@ package net.lilbabywipes.fentmod.effects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.player.PlayerEntity;
 
 public class FentHigh extends StatusEffect {
     public FentHigh() {
@@ -26,7 +27,7 @@ public class FentHigh extends StatusEffect {
     }
 
     @Override
-    public boolean canApplyUpdateEffect(int pDuration, int pAmplifirer) { return true; }
+    public boolean canApplyUpdateEffect(int pDuration, int pAmpwlifirer) { return true; }
 
     private static double min = -0.25;
     private static double max = 0.25;

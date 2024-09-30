@@ -23,11 +23,18 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.COCAINE_BLOCK);
 
         //weed seeds
-        BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(ModBlocks.WEED_CROP).properties(
+        BlockStatePropertyLootCondition.Builder weedBuilder = BlockStatePropertyLootCondition.builder(ModBlocks.WEED_CROP).properties(
+                StatePredicate.Builder.create()
+                        .exactMatch(WeedCropBlock.AGE, 4)
+        );
+        addDrop(ModBlocks.WEED_CROP, cropDrops(ModBlocks.WEED_CROP, ModItems.WEED, ModItems.WEED_SEEDS, weedBuilder));
+
+        //coca seeds
+        BlockStatePropertyLootCondition.Builder cocaBuilder = BlockStatePropertyLootCondition.builder(ModBlocks.COCA_CROP).properties(
                 StatePredicate.Builder.create()
                         .exactMatch(WeedCropBlock.AGE, 4)
         );
 
-        addDrop(ModBlocks.WEED_CROP, cropDrops(ModBlocks.WEED_CROP, ModItems.WEED, ModItems.WEED_SEEDS, builder));
+        addDrop(ModBlocks.COCA_CROP, cropDrops(ModBlocks.COCA_CROP, ModItems.COCAINE, ModItems.COCA_SEEDS, cocaBuilder));
     }
 }

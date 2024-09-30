@@ -21,6 +21,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COCAINE_BLOCK);
 
         blockStateModelGenerator.registerCrop(ModBlocks.WEED_CROP, WeedCropBlock.AGE, 0, 1, 2, 3, 4);
+        blockStateModelGenerator.registerCrop(ModBlocks.COCA_CROP, WeedCropBlock.AGE, 0, 1, 2, 3, 4);
     }
 
     @Override
@@ -35,6 +36,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.JOINT, Models.GENERATED);
         itemModelGenerator.register(ModItems.WEED, Models.GENERATED);
         //itemModelGenerator.register(ModItems.WEED_SEEDS, Models.GENERATED);
+        //itemModelGenerator.register(ModItems.COCA_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.COCAINE, Models.GENERATED);
     }
 }

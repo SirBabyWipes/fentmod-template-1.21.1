@@ -13,7 +13,7 @@ public class ModEntities {
     public static EntityType<DirtyCrackPipeEntity> dirtyCrackPipeEntityType;
 
     public static void initalize() {
-        //this method has been deprecated but it's the only method on documentation
+        //this method has been deprecated, but it's the only method on documentation
         dirtyCrackPipeEntityType = Registry.register(
                 Registries.ENTITY_TYPE,
                 Identifier.of(FentMod.MOD_ID, "dirty_crack_pipe"),

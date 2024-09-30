@@ -30,6 +30,8 @@ public class ModItems {
 
     public static final Item WEED_SEEDS = registerItem("weed_seeds",
             new AliasedBlockItem(ModBlocks.WEED_CROP, new Item.Settings()));
+    public static final Item COCA_SEEDS = registerItem("coca_seeds",
+            new AliasedBlockItem(ModBlocks.COCA_CROP, new Item.Settings()));
 
 
 

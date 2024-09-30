@@ -18,5 +18,6 @@ public class FentModClient implements ClientModInitializer {
                 new FlyingItemEntityRenderer(context));
 
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.WEED_CROP);
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.COCA_CROP);
     }
 }

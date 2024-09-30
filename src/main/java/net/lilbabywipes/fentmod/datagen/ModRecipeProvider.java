@@ -40,6 +40,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.WEED), conditionsFromItem(ModItems.WEED))
                 .offerTo(exporter);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WEED_SEEDS, 1)
+                .input(ModItems.WEED)
+                .criterion(hasItem(ModItems.WEED), conditionsFromItem(ModItems.WEED))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.COCA_SEEDS, 1)
+                .input(ModItems.COCAINE)
+                .criterion(hasItem(ModItems.COCAINE), conditionsFromItem(ModItems.COCAINE))
+                .offerTo(exporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GRINDER, 1)
                 .pattern(" # ")
                 .pattern("# #")
