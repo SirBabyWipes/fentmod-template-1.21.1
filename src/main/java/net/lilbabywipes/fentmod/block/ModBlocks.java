@@ -21,8 +21,8 @@ public class ModBlocks {
     public static final Block COCAINE_BLOCK = registerBlock("cocaine_block",
             new Block(AbstractBlock.Settings.create().strength(.5f).sounds(BlockSoundGroup.WART_BLOCK)));
 
-    public static final Block WEED_CROP = registerBlock("weed_crop",
-             new WeedCropBlock(AbstractBlock.Settings.create().breakInstantly()));
+    public static final CropBlock WEED_CROP = Registry.register(Registries.BLOCK, Identifier.of(FentMod.MOD_ID, "weed_crop"),
+            new WeedCropBlock(Blocks.WHEAT.getSettings())); // same settings as wheat
 
 
 

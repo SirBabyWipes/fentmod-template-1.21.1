@@ -18,7 +18,7 @@ public class DirtyCrackPipe extends Item {
             DirtyCrackPipeEntity pipeEntity = new DirtyCrackPipeEntity(world, user);
             pipeEntity.setItem(stack);
             pipeEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 500F, 0.0F);
-            pipeEntity.velocityModified = true;
+            pipeEntity.velocityModified = true; // this might not be needed
 
             world.spawnEntity(pipeEntity);
         }

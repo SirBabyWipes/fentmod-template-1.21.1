@@ -16,6 +16,7 @@ public class FentModClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityRendererRegistry.register(ModEntities.dirtyCrackPipeEntityType, (context) ->
                 new FlyingItemEntityRenderer(context));
+
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.WEED_CROP);
     }
 }

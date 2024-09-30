@@ -11,7 +11,7 @@ import net.minecraft.state.property.Properties;
 
 public class WeedCropBlock extends CropBlock {
     public static final int MAX_AGE = 4;
-    public static final IntProperty AGE = Properties.AGE_5;
+    public static final IntProperty AGE = Properties.AGE_4;
 
     public WeedCropBlock(Settings settings) {
         super(settings);
@@ -36,4 +36,5 @@ public class WeedCropBlock extends CropBlock {
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(AGE);
     }
+
 }

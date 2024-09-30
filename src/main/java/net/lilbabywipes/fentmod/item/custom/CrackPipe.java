@@ -31,9 +31,9 @@ public class CrackPipe extends Item {
         if (currentCount >= MAX_USES) {
             //replace with broken pipe
             decrementCrack(user);
-            stack.decrement(100);
+            stack = new ItemStack(ModItems.DIRTY_CRACK_PIPE);
 
-            return new ItemStack(ModItems.DIRTY_CRACK_PIPE);
+            return stack;
         }
 
         if (!usable) { return stack; }

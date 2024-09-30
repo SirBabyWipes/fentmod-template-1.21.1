@@ -18,7 +18,7 @@ public class ModEntities {
                 Registries.ENTITY_TYPE,
                 Identifier.of(FentMod.MOD_ID, "dirty_crack_pipe"),
                 FabricEntityTypeBuilder.<DirtyCrackPipeEntity>create(SpawnGroup.MISC, DirtyCrackPipeEntity::new)
-                        .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+                        .dimensions(EntityDimensions.fixed(3F, 3F))
                         .trackRangeBlocks(4).trackedUpdateRate(10)
                         .build()
 
