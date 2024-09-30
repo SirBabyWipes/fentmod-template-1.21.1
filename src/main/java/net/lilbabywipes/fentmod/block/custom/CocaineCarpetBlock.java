@@ -20,9 +20,7 @@ public class CocaineCarpetBlock extends CarpetBlock {
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (entity instanceof LivingEntity) {
-            ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 3 * 20, 4));
+            ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 3 * 20, 2));
         }
     }
-
-
 }

@@ -21,6 +21,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         addDrop(ModBlocks.COCAINE_BLOCK);
+        addDrop(ModBlocks.COCAINE_CARPET_BLOCK);
 
         //weed seeds
         BlockStatePropertyLootCondition.Builder weedBuilder = BlockStatePropertyLootCondition.builder(ModBlocks.WEED_CROP).properties(
