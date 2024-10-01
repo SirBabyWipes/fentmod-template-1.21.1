@@ -1,7 +1,11 @@
 package net.lilbabywipes.fentmod.item.custom;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.lilbabywipes.fentmod.effects.ModEffects;
 import net.lilbabywipes.fentmod.item.ModItems;
 import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.client.render.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -10,6 +14,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -18,6 +23,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
+import org.joml.Matrix4f;
 
 public class JointItem extends Item {
     private static final int MAX_USE_TIME = 40;
@@ -35,8 +41,15 @@ public class JointItem extends Item {
         }
 
         if (!world.isClient) {
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 300, 0));
+            user.addStatusEffect(
+                    new StatusEffectInstance(
+                        Registries.STATUS_EFFECT.getEntry(ModEffects.WEED),
+                            1000,
+                            0
+                    )
+            );
         }
+
         if (user instanceof PlayerEntity playerEntity && !playerEntity.isCreative()) {
             stack.decrement(1);
         }

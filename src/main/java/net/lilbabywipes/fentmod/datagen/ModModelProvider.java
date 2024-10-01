@@ -16,6 +16,7 @@ public class ModModelProvider extends FabricModelProvider {
         super(output);
     }
 
+    //when registering crops you only need to register the crop block and not the seed item
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COCAINE_BLOCK);

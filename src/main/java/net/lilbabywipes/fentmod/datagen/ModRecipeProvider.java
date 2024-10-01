@@ -39,11 +39,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModItems.BONGEMPTY)
                 .criterion(hasItem(ModItems.WEED), conditionsFromItem(ModItems.WEED))
                 .offerTo(exporter);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.COCAINE_CARPET_BLOCK, 1)
                 .input(ModItems.COCAINE)
                 .input(ModItems.COCAINE)
                 .criterion(hasItem(ModItems.COCAINE), conditionsFromItem(ModItems.COCAINE))
                 .offerTo(exporter);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.JOINT, 1)
                 .input(ModItems.WEED)
                 .input(Items.PAPER)
@@ -54,6 +56,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModItems.WEED)
                 .criterion(hasItem(ModItems.WEED), conditionsFromItem(ModItems.WEED))
                 .offerTo(exporter);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.COCA_SEEDS, 1)
                 .input(ModItems.COCAINE)
                 .criterion(hasItem(ModItems.COCAINE), conditionsFromItem(ModItems.COCAINE))

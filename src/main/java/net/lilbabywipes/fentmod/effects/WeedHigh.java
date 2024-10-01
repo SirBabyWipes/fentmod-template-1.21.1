@@ -1,10 +1,14 @@
 package net.lilbabywipes.fentmod.effects;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.text.Text;
+import org.joml.Matrix4f;
 
 public class WeedHigh extends StatusEffect {
     public WeedHigh() {
@@ -13,6 +17,7 @@ public class WeedHigh extends StatusEffect {
 
     @Override
     public boolean applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
+
         if(!pLivingEntity.getWorld().isClient) {
             
             long currentTime = pLivingEntity.getWorld().getTime();
