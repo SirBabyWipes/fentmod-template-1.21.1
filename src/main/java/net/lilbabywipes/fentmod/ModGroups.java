@@ -31,6 +31,8 @@ public class ModGroups {
                         entries.add(ModItems.COCA_SEEDS);
                         entries.add(ModBlocks.COCAINE_CARPET_BLOCK);
                         entries.add(ModItems.NARCAN);
+                        entries.add(ModItems.SALVIA);
+                        entries.add(ModItems.SALVIA_SEEDS);
                     }).build());
 
 

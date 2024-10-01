@@ -18,6 +18,7 @@ public class ModItems {
     public static final Item GRINDER = registerItem("grinder", new Grinder(new Item.Settings()));
     public static final Item BONGEMPTY = registerItem("bongempty", new Item(new Item.Settings()));
     public static final Item GROUNDWEED = registerItem("groundweed", new Item(new Item.Settings()));
+    public static final Item SALVIA = registerItem("salvia", new Item(new Item.Settings()));
 
     public static final Item JOINT = registerItem("joint", new JointItem(new Item.Settings()));
     public static final Item BONGFULL = registerItem("bongfull", new BongFullItem(new Item.Settings()));
@@ -33,6 +34,8 @@ public class ModItems {
             new AliasedBlockItem(ModBlocks.WEED_CROP, new Item.Settings()));
     public static final Item COCA_SEEDS = registerItem("coca_seeds",
             new AliasedBlockItem(ModBlocks.COCA_CROP, new Item.Settings()));
+    public static final Item SALVIA_SEEDS = registerItem("salvia_seeds",
+            new AliasedBlockItem(ModBlocks.SALVIA_CROP, new Item.Settings()));
 
 
 

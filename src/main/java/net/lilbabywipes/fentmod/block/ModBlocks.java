@@ -31,6 +31,8 @@ public class ModBlocks {
             new WeedCropBlock(Blocks.WHEAT.getSettings())); // same settings as wheat
     public static final CropBlock COCA_CROP = Registry.register(Registries.BLOCK, Identifier.of(FentMod.MOD_ID, "coca_crop"),
             new CocaCropBlock(Blocks.WHEAT.getSettings())); // same settings as wheat
+    public static final CropBlock SALVIA_CROP = Registry.register(Registries.BLOCK, Identifier.of(FentMod.MOD_ID, "salvia_crop"),
+            new CocaCropBlock(Blocks.WHEAT.getSettings())); // same settings as wheat
 
 
 

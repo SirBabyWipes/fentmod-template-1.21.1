@@ -9,6 +9,7 @@
   "item.fentmod.crack_pipe": "CrackPipe",
   "item.fentmod.dirty_crack_pipe": "DirtyCrackPipe",
   "item.fentmod.fent": "Fent",
+  "item.fentmod.salvia": "Salvia",
 
 
   "effect.fentmod.overdose": "Fent High",
@@ -16,6 +17,7 @@
 
   "item.fentmod.weed_seeds": "Weed Seeds",
   "item.fentmod.coca_seeds": "Coca Seeds",
+  "item.fentmod.salvia_seeds": "Salvia Seeds",
 
   "block.fentmod.cocaine_block": "Brick of Cocaine",
   "block.fentmod.cocaine_carpet_block": "Cocaine Carpet",

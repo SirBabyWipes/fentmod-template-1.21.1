@@ -37,5 +37,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         );
 
         addDrop(ModBlocks.COCA_CROP, cropDrops(ModBlocks.COCA_CROP, ModItems.COCAINE, ModItems.COCA_SEEDS, cocaBuilder));
+
+        //salvia seeds
+        BlockStatePropertyLootCondition.Builder salviaBuilder = BlockStatePropertyLootCondition.builder(ModBlocks.SALVIA_CROP).properties(
+                StatePredicate.Builder.create()
+                        .exactMatch(WeedCropBlock.AGE, 4)
+        );
+
+        addDrop(ModBlocks.SALVIA_CROP, cropDrops(ModBlocks.SALVIA_CROP, ModItems.SALVIA, ModItems.SALVIA_SEEDS, salviaBuilder));
     }
 }
