@@ -12,11 +12,13 @@ import net.minecraft.util.Identifier;
 public class ModEffects {
     public static StatusEffect FENT;
     public static StatusEffect WEED;
+    public static StatusEffect SALVIA;
 
     public static void init() {
         FENT = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "overdose"), new FentHigh()
                 .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, Identifier.of("effect.fent"), 0.2, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
         );
         WEED = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "high"), new WeedHigh());
+        SALVIA = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "salvia_high"), new SalviaHigh());
     }
 }

@@ -22,7 +22,6 @@ public class FentHigh extends StatusEffect {
                 pLivingEntity.velocityModified = true;
             }
         }
-
         return super.applyUpdateEffect(pLivingEntity, pAmplifier);
     }
 

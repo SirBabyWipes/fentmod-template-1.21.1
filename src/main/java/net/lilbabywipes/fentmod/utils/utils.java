@@ -27,12 +27,12 @@ public class utils {
         return Optional.empty();
     }
 
-    private static double getRandomValue(double min, double max) {
+    public static double getRandomValue(double min, double max) {
         return min + Math.random() * (max - min);
     }
 
     public static Random rand = new Random();
-    private static int getRandomInt(int min, int max) {
+    public static int getRandomInt(int min, int max) {
         return rand.nextInt(max);
     }
 }
