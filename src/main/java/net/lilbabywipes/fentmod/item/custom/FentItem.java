@@ -1,9 +1,12 @@
 package net.lilbabywipes.fentmod.item.custom;
 
 import net.lilbabywipes.fentmod.data.ModServerData;
+import net.lilbabywipes.fentmod.data.PlayerData;
 import net.lilbabywipes.fentmod.data.Substances;
 import net.lilbabywipes.fentmod.effects.ModEffects;
+import net.lilbabywipes.fentmod.utils.ModConstants;
 import net.minecraft.registry.Registries;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -20,13 +23,18 @@ public class FentItem extends Item {
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        PlayerData data = ModServerData.getPlayerData(user.getUuid());
+        if ((data.crunked - data.resistance) > ModConstants.OVERDOSE_THRESH) {
+            user.playSound(SoundEvents.ENTITY_ENDER_DRAGON_DEATH, 2F, 1F);
+        }
+
         super.finishUsing(stack, world, user);
         if (!world.isClient) {
             user.addStatusEffect(
                     new StatusEffectInstance(
                         Registries.STATUS_EFFECT.getEntry(ModEffects.FENT),
                         1000,
-                        0
+                        1
                     )
             );
 

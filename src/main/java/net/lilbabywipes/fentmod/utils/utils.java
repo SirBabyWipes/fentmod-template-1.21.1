@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 public class utils {
     public static boolean hasItem(PlayerInventory inventory, Item item) {
@@ -26,4 +27,12 @@ public class utils {
         return Optional.empty();
     }
 
+    private static double getRandomValue(double min, double max) {
+        return min + Math.random() * (max - min);
+    }
+
+    public static Random rand = new Random();
+    private static int getRandomInt(int min, int max) {
+        return rand.nextInt(max);
+    }
 }

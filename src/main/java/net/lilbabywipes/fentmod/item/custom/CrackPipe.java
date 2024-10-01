@@ -33,7 +33,6 @@ public class CrackPipe extends Item {
         //overdose condition
         if ((data.crunked - data.resistance) > ModConstants.OVERDOSE_THRESH) {
             user.playSound(SoundEvents.ENTITY_ENDER_DRAGON_DEATH, 2F, 1F);
-            //overdose player
         }
 
         boolean usable = stack.getOrDefault(ModComponents.CRACK_PIPE_USEABLE, true);
@@ -41,7 +40,14 @@ public class CrackPipe extends Item {
         if (currentCount >= MAX_USES) {
             //replace with broken pipe
             decrementCrack(user);
-            stack = new ItemStack(ModItems.DIRTY_CRACK_PIPE);
+            if (!stack.isEmpty()) {
+                ItemStack dirtyCrackStack = new ItemStack(ModItems.DIRTY_CRACK_PIPE);
+                if (user instanceof PlayerEntity) {
+                    if (!((PlayerEntity) user).getInventory().insertStack(dirtyCrackStack)); {
+                        ((PlayerEntity) user).dropItem(dirtyCrackStack, false);
+                    }
+                }
+            }
 
             return stack;
         }
@@ -80,14 +86,7 @@ public class CrackPipe extends Item {
         //int currentCount = pipeStack.getOrDefault(ModComponents.CRACK_PIPE_COUNT, 0);
 
         boolean hasCrack = user.getInventory().main.stream().anyMatch(stack -> stack.isOf(ModItems.COCAINE));
-        if (hasCrack) {
-            //currentCount++;
-            //pipeStack.set(ModComponents.CRACK_PIPE_COUNT, currentCount);
-            pipeStack.set(ModComponents.CRACK_PIPE_USEABLE, true);
-        } else {
-            pipeStack.set(ModComponents.CRACK_PIPE_USEABLE, false);
-        }
-
+        pipeStack.set(ModComponents.CRACK_PIPE_USEABLE, hasCrack);
         return item;
     }
 

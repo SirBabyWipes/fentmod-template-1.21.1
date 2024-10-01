@@ -12,6 +12,7 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 
 public class FentModClient implements ClientModInitializer {
+    public static boolean silviaHigh;
     @Override
     public void onInitializeClient() {
         EntityRendererRegistry.register(ModEntities.dirtyCrackPipeEntityType, (context) ->

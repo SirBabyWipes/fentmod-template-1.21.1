@@ -27,6 +27,7 @@ public class ModItems {
 
     public static final Item CRACK_PIPE = registerItem("crack_pipe", new CrackPipe(new Item.Settings()));
     public static final Item DIRTY_CRACK_PIPE = registerItem("dirty_crack_pipe", new DirtyCrackPipe(new Item.Settings()));
+    public static final Item NARCAN = registerItem("narcan", new NarcanItem(new Item.Settings()));
 
     public static final Item WEED_SEEDS = registerItem("weed_seeds",
             new AliasedBlockItem(ModBlocks.WEED_CROP, new Item.Settings()));

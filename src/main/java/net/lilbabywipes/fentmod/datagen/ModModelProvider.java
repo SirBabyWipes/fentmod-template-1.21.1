@@ -37,6 +37,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GROUNDWEED, Models.GENERATED);
         itemModelGenerator.register(ModItems.JOINT, Models.GENERATED);
         itemModelGenerator.register(ModItems.WEED, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NARCAN, Models.GENERATED);
         //itemModelGenerator.register(ModItems.WEED_SEEDS, Models.GENERATED);
         //itemModelGenerator.register(ModItems.COCA_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.COCAINE, Models.GENERATED);

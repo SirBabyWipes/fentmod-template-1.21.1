@@ -16,6 +16,12 @@ public class ModCustomTrades {
                     new ItemStack(ModItems.FENT, 1),
                     2, 7, 0.3F
             ));
+
+            factories.add((entity, random) -> new TradeOffer(
+                    new TradedItem(Items.DIAMOND, 2),
+                    new ItemStack(ModItems.NARCAN, 1),
+                    2, 7, 0.3F
+            ));
         });
     }
 }
