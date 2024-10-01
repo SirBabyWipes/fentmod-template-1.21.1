@@ -1,7 +1,11 @@
 package net.lilbabywipes.fentmod.item.custom;
 
 import net.lilbabywipes.fentmod.component.ModComponents;
+import net.lilbabywipes.fentmod.data.ModServerData;
+import net.lilbabywipes.fentmod.data.PlayerData;
+import net.lilbabywipes.fentmod.data.Substances;
 import net.lilbabywipes.fentmod.item.ModItems;
+import net.lilbabywipes.fentmod.utils.ModConstants;
 import net.lilbabywipes.fentmod.utils.utils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -10,6 +14,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
@@ -23,6 +29,13 @@ public class CrackPipe extends Item {
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        PlayerData data = ModServerData.getPlayerData(user.getUuid());
+        //overdose condition
+        if ((data.crunked - data.resistance) > ModConstants.OVERDOSE_THRESH) {
+            user.playSound(SoundEvents.ENTITY_ENDER_DRAGON_DEATH, 2F, 1F);
+            //overdose player
+        }
+
         boolean usable = stack.getOrDefault(ModComponents.CRACK_PIPE_USEABLE, true);
         int currentCount = stack.getOrDefault(ModComponents.CRACK_PIPE_COUNT, 0);
         if (currentCount >= MAX_USES) {
@@ -42,6 +55,8 @@ public class CrackPipe extends Item {
         }
 
         decrementCrack(user);
+
+        ModServerData.updatePlayerData(user, Substances.COCAIN);
 
         return stack;
     }

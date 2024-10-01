@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.lilbabywipes.fentmod.block.ModBlocks;
 import net.lilbabywipes.fentmod.component.ModComponents;
+import net.lilbabywipes.fentmod.data.ModServerData;
 import net.lilbabywipes.fentmod.effects.ModEffects;
 import net.lilbabywipes.fentmod.entities.ModEntities;
 import net.lilbabywipes.fentmod.item.ModItems;
@@ -25,5 +26,6 @@ public class FentMod implements ModInitializer {
 		ModGroups.registerItemGroup();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModServerData.intialize();
 	}
 }

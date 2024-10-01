@@ -1,6 +1,6 @@
 package net.lilbabywipes.fentmod.data;
 
 public class PlayerData {
-    public int resistance = 0;
-    public int crunked = 0;
+    public double resistance = 0;
+    public double crunked = 0;
 }

@@ -1,5 +1,8 @@
 package net.lilbabywipes.fentmod.item.custom;
 
+import net.lilbabywipes.fentmod.FentMod;
+import net.lilbabywipes.fentmod.data.ModServerData;
+import net.lilbabywipes.fentmod.data.Substances;
 import net.lilbabywipes.fentmod.item.ModItems;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.LivingEntity;
@@ -49,6 +52,9 @@ public class BongFullItem extends Item {
                 }
             }
         }
+
+        ModServerData.updatePlayerData(user, Substances.WEED);
+
         return stack.isEmpty() ? new ItemStack(ModItems.BONGEMPTY) : stack;
 
     }

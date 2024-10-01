@@ -1,5 +1,7 @@
 package net.lilbabywipes.fentmod.item.custom;
 
+import net.lilbabywipes.fentmod.data.ModServerData;
+import net.lilbabywipes.fentmod.data.Substances;
 import net.lilbabywipes.fentmod.effects.ModEffects;
 import net.minecraft.registry.Registries;
 import net.minecraft.world.World;
@@ -29,6 +31,8 @@ public class FentItem extends Item {
             );
 
         }
+
+        ModServerData.updatePlayerData(user, Substances.FENT);
 
         return stack;
     }

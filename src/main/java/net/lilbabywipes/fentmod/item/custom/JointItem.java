@@ -2,6 +2,8 @@ package net.lilbabywipes.fentmod.item.custom;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.lilbabywipes.fentmod.data.ModServerData;
+import net.lilbabywipes.fentmod.data.Substances;
 import net.lilbabywipes.fentmod.effects.ModEffects;
 import net.lilbabywipes.fentmod.item.ModItems;
 import net.minecraft.advancement.criterion.Criteria;
@@ -53,6 +55,9 @@ public class JointItem extends Item {
         if (user instanceof PlayerEntity playerEntity && !playerEntity.isCreative()) {
             stack.decrement(1);
         }
+
+        ModServerData.updatePlayerData(user, Substances.WEED);
+
         return stack;
     }
     @Override

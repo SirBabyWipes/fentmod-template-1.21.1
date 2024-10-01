@@ -1,5 +1,7 @@
 package net.lilbabywipes.fentmod.item.custom;
 
+import net.lilbabywipes.fentmod.data.ModServerData;
+import net.lilbabywipes.fentmod.data.Substances;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -37,6 +39,9 @@ public class CocaineItem extends Item {
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 5*20, 4));
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 5*20, 4));
         }
+
+        ModServerData.updatePlayerData(user, Substances.COCAIN);
+
         return stack;
 
     }
