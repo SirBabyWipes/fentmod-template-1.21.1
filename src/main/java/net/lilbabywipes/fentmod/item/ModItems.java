@@ -23,6 +23,7 @@ public class ModItems {
     public static final Item JOINT = registerItem("joint", new JointItem(new Item.Settings()));
     public static final Item BONGFULL = registerItem("bongfull", new BongFullItem(new Item.Settings()));
     public static final Item COCAINE = registerItem("cocaine", new CocaineItem(new Item.Settings()));
+    public static final Item BEER = registerItem("beer", new BeerItem(new Item.Settings()));
 
     public static final Item FENT = registerItem("fent", new FentItem(new Item.Settings()));
 

@@ -33,6 +33,7 @@ public class ModGroups {
                         entries.add(ModItems.NARCAN);
                         entries.add(ModItems.SALVIA);
                         entries.add(ModItems.SALVIA_SEEDS);
+                        entries.add(ModItems.BEER);
                     }).build());
 
 

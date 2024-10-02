@@ -52,6 +52,9 @@ public class ModServerData extends PersistentState {
                 data.crunked += 15;
                break;
             }
+            case Substances.ALC -> {
+                data.alcDeep+=1;
+            }
         }
 
         updatePlayerData(player, data);

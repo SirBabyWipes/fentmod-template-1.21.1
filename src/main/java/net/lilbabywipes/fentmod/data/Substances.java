@@ -4,4 +4,5 @@ public enum Substances {
     COCAIN,
     WEED,
     FENT,
+    ALC,
 }
