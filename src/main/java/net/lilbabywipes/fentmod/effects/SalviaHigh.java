@@ -1,43 +1,49 @@
 package net.lilbabywipes.fentmod.effects;
 
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
-import net.lilbabywipes.fentmod.FentModClient;
-import net.lilbabywipes.fentmod.utils.utils;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.render.RenderTickCounter;
+
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.lilbabywipes.fentmod.networking.SalviaHighPayload;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.PlayerListEntry;
+import net.minecraft.client.network.ServerInfo;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.util.math.ColorHelper;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.PlayerManager;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.world.World;
+
+import java.util.UUID;
 
 public class SalviaHigh extends StatusEffect {
     public SalviaHigh() {
         super(StatusEffectCategory.BENEFICIAL, 100);
     }
+
     @Override
     public boolean applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
-        FentModClient.salviaHigh=true;
-        if(!pLivingEntity.getWorld().isClient) {
-            long currentTime = pLivingEntity.getWorld().getTime();
-            if (FentModClient.salviaHigh){
-                HudRenderCallback.EVENT.register((context, tickDeltaManager) -> {
-                    if (currentTime % 40 == 0) {
-                        int color = utils.getRandomInt(0, 1000000000);
-                        int targetColor = utils.getRandomInt(0, 1000000000);
 
-                        float totalTickDelta = tickDeltaManager.getTickDelta(true);
-
-                        float lerpedAmount = MathHelper.abs(MathHelper.sin(totalTickDelta / 50F));
-                        int lerpedColor = ColorHelper.Argb.lerp(lerpedAmount, color, targetColor);
-
-                        context.fill(0, 0, 10000, 10000, 0, lerpedColor);
-                    }
-                });
-            }
-        }
+        //FentModClient.salviaHigh=true;
         return super.applyUpdateEffect(pLivingEntity, pAmplifier);
+    }
+
+    @Override
+    public void onEntityRemoval(LivingEntity entity, int amplifier, Entity.RemovalReason reason) {
+        if (entity instanceof ServerPlayerEntity) {
+            ServerPlayNetworking.send((ServerPlayerEntity) entity, new SalviaHighPayload(false));
+        }
+    }
+    @Override
+    public void onApplied(LivingEntity entity, int amplifier) {
+        if (entity instanceof PlayerEntity) {
+            ServerPlayNetworking.send((ServerPlayerEntity) entity, new SalviaHighPayload(true));
+        }
     }
 
     @Override
@@ -45,10 +51,7 @@ public class SalviaHigh extends StatusEffect {
 
     @Override
     public void onRemoved(AttributeContainer attributeContainer) {
-        FentModClient.salviaHigh=false;
-        HudRenderCallback.EVENT.register((context, tickDeltaManager) -> {
-            context.fill(0,0,0,0,0, 0);
-        });
+        //FentModClient.salviaHigh=false;
         super.onRemoved(attributeContainer);
     }
 }
