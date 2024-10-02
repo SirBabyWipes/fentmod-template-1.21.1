@@ -13,6 +13,7 @@ public class ModEffects {
     public static StatusEffect FENT;
     public static StatusEffect WEED;
     public static StatusEffect SALVIA;
+    public static StatusEffect DRUNK;
 
     public static void init() {
         FENT = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "overdose"), new FentHigh()
@@ -20,5 +21,6 @@ public class ModEffects {
         );
         WEED = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "high"), new WeedHigh());
         SALVIA = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "salvia_high"), new SalviaHigh());
+        DRUNK = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "drunk"), new Drunk());
     }
 }
