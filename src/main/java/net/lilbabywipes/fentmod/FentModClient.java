@@ -45,8 +45,7 @@ public class FentModClient implements ClientModInitializer {
         @Override
         public void onHudRender(DrawContext drawContext, RenderTickCounter tickCounter) {
             HudRenderCallback.EVENT.register((context, tickDeltaManager) -> {
-                long currentTime = MinecraftClient.getInstance().world.getTime();
-                if (currentTime % 40 == 0 && active) {
+                if (active) {
                     int color = utils.getRandomInt(0, 1000000000);
                     int targetColor = utils.getRandomInt(0, 1000000000);
 
