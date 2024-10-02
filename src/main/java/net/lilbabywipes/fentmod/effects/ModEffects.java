@@ -16,11 +16,14 @@ public class ModEffects {
     public static StatusEffect DRUNK;
 
     public static void init() {
+        WEED = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "high"), new WeedHigh());
+        SALVIA = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "salvia_high"), new SalviaHigh());
+
         FENT = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "overdose"), new FentHigh()
                 .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, Identifier.of("effect.fent"), 0.2, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
         );
-        WEED = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "high"), new WeedHigh());
-        SALVIA = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "salvia_high"), new SalviaHigh());
-        DRUNK = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "drunk"), new Drunk());
+        DRUNK = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "drunk"), new Drunk()
+                .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, Identifier.of("effect.drunk"), 5.0, EntityAttributeModifier.Operation.ADD_VALUE)
+        );
     }
 }

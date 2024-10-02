@@ -10,10 +10,14 @@
   "item.fentmod.dirty_crack_pipe": "DirtyCrackPipe",
   "item.fentmod.fent": "Fent",
   "item.fentmod.salvia": "Salvia",
+  "item.fentmod.beer": "Beer",
+  "item.fentmod.narcan": "Narcan",
+
 
 
   "effect.fentmod.overdose": "Fent High",
   "effect.fentmod.high": "High",
+  "effect.fentmod.drunk": "Drunk",
 
   "item.fentmod.weed_seeds": "Weed Seeds",
   "item.fentmod.coca_seeds": "Coca Seeds",
