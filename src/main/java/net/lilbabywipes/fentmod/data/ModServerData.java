@@ -51,10 +51,11 @@ public class ModServerData extends PersistentState {
             case Substances.FENT -> {
                 data.resistance += 5;
                 data.crunked += 15;
-               break;
+                break;
             }
             case Substances.ALC -> {
                 data.alcDeep+=1;
+                break;
             }
         }
 
