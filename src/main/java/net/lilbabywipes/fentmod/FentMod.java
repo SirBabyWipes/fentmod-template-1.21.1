@@ -2,8 +2,6 @@ package net.lilbabywipes.fentmod;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.lilbabywipes.fentmod.block.ModBlocks;
 import net.lilbabywipes.fentmod.component.ModComponents;
 import net.lilbabywipes.fentmod.data.ModServerData;
@@ -12,10 +10,8 @@ import net.lilbabywipes.fentmod.entities.ModEntities;
 import net.lilbabywipes.fentmod.events.ModEvents;
 import net.lilbabywipes.fentmod.item.ModItems;
 import net.lilbabywipes.fentmod.networking.ModNetworking;
-import net.lilbabywipes.fentmod.networking.ModNetworkingConstants;
 import net.lilbabywipes.fentmod.utils.ModCustomTrades;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.profiling.jfr.event.ServerTickTimeEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +23,7 @@ public class FentMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModEvents.initalize();
+		ModEvents.initialize();
 		ModEntities.initalize();
 		ModComponents.initalize();
 		ModEffects.init();

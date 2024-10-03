@@ -81,6 +81,8 @@ public class CrackPipe extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         TypedActionResult<ItemStack> item = ItemUsage.consumeHeldItem(world, user, hand);
 
+        if (!utils.hasItem(user.getInventory(), ModItems.COCAINE)) { return item; }
+
         user.setCurrentHand(hand);
         ItemStack pipeStack = user.getStackInHand(hand);
         //int currentCount = pipeStack.getOrDefault(ModComponents.CRACK_PIPE_COUNT, 0);
@@ -92,6 +94,7 @@ public class CrackPipe extends Item {
 
     public static void decrementCrack(LivingEntity user) {
         if (user instanceof PlayerEntity player ) {
+            if (!utils.hasItem(player.getInventory(), ModItems.COCAINE)) { return; }
             ItemStack crackStack = utils.getItemFromInventory(((PlayerEntity) user).getInventory(), ModItems.COCAINE).get();
             crackStack.decrement(1);
         }

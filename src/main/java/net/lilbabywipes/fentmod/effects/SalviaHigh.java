@@ -25,8 +25,7 @@ public class SalviaHigh extends StatusEffect {
 
     @Override
     public boolean applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
-
-        //FentModClient.salviaHigh=true;
+        pLivingEntity.heal(10);
         return super.applyUpdateEffect(pLivingEntity, pAmplifier);
     }
 
@@ -50,7 +49,9 @@ public class SalviaHigh extends StatusEffect {
     @Override
     public void onRemoved(AttributeContainer attributeContainer) {
        ServerPlayerEntity player = FentMod.server.getPlayerManager().getPlayer(this.playerUUID);
-       ServerPlayNetworking.send(player, new SalviaHighPayload(false));
+       if (player != null) {
+           ServerPlayNetworking.send(player, new SalviaHighPayload(false));
+       }
         //FentModClient.salviaHigh=false;
         super.onRemoved(attributeContainer);
     }

@@ -54,10 +54,7 @@ public class FentModClient implements ClientModInitializer {
                     float lerpedAmount = MathHelper.abs(MathHelper.sin(totalTickDelta / 50F));
                     int lerpedColor = ColorHelper.Argb.lerp(lerpedAmount, color, targetColor);
 
-                    int width = MinecraftClient.getInstance().getWindow().getWidth();
-                    int height = MinecraftClient.getInstance().getWindow().getHeight();
-
-                    context.fill(0, 0, width, height, -100, lerpedColor);
+                    context.fill(0, 0, 30, 30, -100, lerpedColor);
                 }
             });
         }

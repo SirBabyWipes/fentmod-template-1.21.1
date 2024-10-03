@@ -25,7 +25,8 @@ public class FentItem extends Item {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         PlayerData data = ModServerData.getPlayerData(user.getUuid());
         if ((data.crunked - data.resistance) > ModConstants.OVERDOSE_THRESH) {
-            user.playSound(SoundEvents.ENTITY_ENDER_DRAGON_DEATH, 2F, 1F);
+            //user.playSound(SoundEvents.ENTITY_ENDER_DRAGON_DEATH, 2F, 1F);
+            user.kill();
         }
 
         super.finishUsing(stack, world, user);
@@ -34,7 +35,7 @@ public class FentItem extends Item {
                     new StatusEffectInstance(
                         Registries.STATUS_EFFECT.getEntry(ModEffects.FENT),
                         1000,
-                        1
+                        0
                     )
             );
 
