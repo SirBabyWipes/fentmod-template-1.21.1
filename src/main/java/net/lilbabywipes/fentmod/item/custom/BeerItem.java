@@ -35,6 +35,7 @@ public class BeerItem extends Item {
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        ModServerData.updatePlayerData(user, Substances.ALC);
         super.finishUsing(stack, world, user);
         PlayerData data = ModServerData.getPlayerData(user.getUuid());
 
@@ -48,7 +49,7 @@ public class BeerItem extends Item {
                     new StatusEffectInstance(
                             Registries.STATUS_EFFECT.getEntry(ModEffects.DRUNK),
                             60*20,
-                            data.alcDeep
+                            (int) data.alcDeep
                     )
             );
 
@@ -65,7 +66,7 @@ public class BeerItem extends Item {
             }
         }
 
-        ModServerData.updatePlayerData(user, Substances.ALC);
+
 
         return stack.isEmpty() ? new ItemStack(Items.GLASS_BOTTLE) : stack;
 

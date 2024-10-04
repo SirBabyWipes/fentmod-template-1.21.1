@@ -33,7 +33,7 @@ public class ModEffects {
         );
 
         DRUNK = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "drunk"), new Drunk()
-                .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, Identifier.of("effect.drunk"), 5.0, EntityAttributeModifier.Operation.ADD_VALUE)
+                .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, Identifier.of("effect.drunk"), 2.0, EntityAttributeModifier.Operation.ADD_VALUE)
         );
     }
 }

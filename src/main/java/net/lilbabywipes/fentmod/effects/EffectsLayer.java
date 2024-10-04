@@ -10,7 +10,6 @@ import net.minecraft.util.math.MathHelper;
 
 
 public class EffectsLayer implements HudRenderCallback {
-
     @Override
     public void onHudRender(DrawContext drawContext, RenderTickCounter tickCounter) {
         MinecraftClient client = MinecraftClient.getInstance();
