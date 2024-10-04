@@ -4,6 +4,7 @@ import net.lilbabywipes.fentmod.component.ModComponents;
 import net.lilbabywipes.fentmod.data.ModServerData;
 import net.lilbabywipes.fentmod.data.PlayerData;
 import net.lilbabywipes.fentmod.data.Substances;
+import net.lilbabywipes.fentmod.effects.ModEffects;
 import net.lilbabywipes.fentmod.item.ModItems;
 import net.lilbabywipes.fentmod.utils.ModConstants;
 import net.lilbabywipes.fentmod.utils.utils;
@@ -14,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
+import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -41,6 +43,7 @@ public class CrackPipe extends Item {
             //replace with broken pipe
             decrementCrack(user);
             if (!stack.isEmpty()) {
+                stack.decrement(1);
                 ItemStack dirtyCrackStack = new ItemStack(ModItems.DIRTY_CRACK_PIPE);
                 if (user instanceof PlayerEntity) {
                     if (!((PlayerEntity) user).getInventory().insertStack(dirtyCrackStack)); {
@@ -49,13 +52,15 @@ public class CrackPipe extends Item {
                 }
             }
 
+            applyCrackEffect(user);
+
             return stack;
         }
 
         if (!usable) { return stack; }
 
         if(!world.isClient) {
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 10, 1));
+            applyCrackEffect(user);
             currentCount++;
             stack.set(ModComponents.CRACK_PIPE_COUNT, currentCount);
         }
@@ -92,7 +97,17 @@ public class CrackPipe extends Item {
         return item;
     }
 
-    public static void decrementCrack(LivingEntity user) {
+    private static void applyCrackEffect(LivingEntity user) {
+        user.addStatusEffect(
+                new StatusEffectInstance(
+                        Registries.STATUS_EFFECT.getEntry(ModEffects.COCAIN),
+                        60*20,
+                        1
+                )
+        );
+    }
+
+    private static void decrementCrack(LivingEntity user) {
         if (user instanceof PlayerEntity player ) {
             if (!utils.hasItem(player.getInventory(), ModItems.COCAINE)) { return; }
             ItemStack crackStack = utils.getItemFromInventory(((PlayerEntity) user).getInventory(), ModItems.COCAINE).get();
