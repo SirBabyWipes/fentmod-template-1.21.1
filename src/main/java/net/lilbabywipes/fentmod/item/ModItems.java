@@ -22,16 +22,16 @@ public class ModItems {
     public static final Item SUPERWHEAT = registerItem("superwheat", new Item(new Item.Settings()));
 
 
-    public static final Item JOINT = registerItem("joint", new JointItem(new Item.Settings()));
-    public static final Item BONGFULL = registerItem("bongfull", new BongFullItem(new Item.Settings()));
+    public static final Item JOINT = registerItem("joint", new JointItem(new Item.Settings().maxCount(1)));
+    public static final Item BONGFULL = registerItem("bongfull", new BongFullItem(new Item.Settings().maxCount(1)));
     public static final Item COCAINE = registerItem("cocaine", new CocaineItem(new Item.Settings()));
-    public static final Item BEER = registerItem("beer", new BeerItem(new Item.Settings()));
+    public static final Item BEER = registerItem("beer", new BeerItem(new Item.Settings().maxCount(16)));
 
     public static final Item FENT = registerItem("fent", new FentItem(new Item.Settings()));
 
-    public static final Item CRACK_PIPE = registerItem("crack_pipe", new CrackPipe(new Item.Settings()));
-    public static final Item DIRTY_CRACK_PIPE = registerItem("dirty_crack_pipe", new DirtyCrackPipe(new Item.Settings()));
-    public static final Item NARCAN = registerItem("narcan", new NarcanItem(new Item.Settings()));
+    public static final Item CRACK_PIPE = registerItem("crack_pipe", new CrackPipe(new Item.Settings().maxCount(1)));
+    public static final Item DIRTY_CRACK_PIPE = registerItem("dirty_crack_pipe", new DirtyCrackPipe(new Item.Settings().maxCount(1)));
+    public static final Item NARCAN = registerItem("narcan", new NarcanItem(new Item.Settings().maxCount(16)));
 
     public static final Item WEED_SEEDS = registerItem("weed_seeds",
             new AliasedBlockItem(ModBlocks.WEED_CROP, new Item.Settings()));
