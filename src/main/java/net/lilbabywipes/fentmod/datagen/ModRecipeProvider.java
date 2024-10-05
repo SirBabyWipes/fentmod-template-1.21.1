@@ -10,6 +10,9 @@ import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Items;
+import net.minecraft.item.PotionItem;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.Potions;
 import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -38,6 +41,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModItems.WEED)
                 .input(ModItems.BONGEMPTY)
                 .criterion(hasItem(ModItems.WEED), conditionsFromItem(ModItems.WEED))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SUPERWHEAT, 1)
+                .input(Items.HAY_BLOCK)
+                .input(Items.HAY_BLOCK)
+                .input(Items.HAY_BLOCK)
+                .input(Items.HAY_BLOCK)
+                .input(Items.HAY_BLOCK)
+                .input(Items.HAY_BLOCK)
+                .input(Items.HAY_BLOCK)
+                .input(Items.HAY_BLOCK)
+                .input(Items.HAY_BLOCK)
+                .criterion(hasItem(Items.HAY_BLOCK), conditionsFromItem(Items.HAY_BLOCK))
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.COCAINE_CARPET_BLOCK, 1)
@@ -77,6 +93,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', Items.GLASS)
                 .input('#', Items.AMETHYST_SHARD)
                 .criterion(hasItem(Items.AMETHYST_SHARD), conditionsFromItem(Items.AMETHYST_SHARD))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BEER, 1)
+                .pattern("SSS")
+                .pattern("S#S")
+                .pattern("SSS")
+                .input('S', ModItems.SUPERWHEAT)
+                .input('#', Items.WATER_BUCKET)
+                .criterion(hasItem(ModItems.SUPERWHEAT), conditionsFromItem(ModItems.SUPERWHEAT))
                 .offerTo(exporter);
     }
 }

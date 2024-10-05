@@ -72,12 +72,12 @@ public class JointItem extends Item {
 
     @Override
     public SoundEvent getDrinkSound() {
-        return SoundEvents.BLOCK_SMOKER_SMOKE;
+        return SoundEvents.ENTITY_TURTLE_LAY_EGG;
     }
 
     @Override
     public SoundEvent getEatSound() {
-        return SoundEvents.BLOCK_SMOKER_SMOKE;
+        return SoundEvents.ENTITY_TURTLE_LAY_EGG;
     }
 
     @Override

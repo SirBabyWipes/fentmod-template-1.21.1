@@ -34,6 +34,8 @@ public class ModGroups {
                         entries.add(ModItems.SALVIA);
                         entries.add(ModItems.SALVIA_SEEDS);
                         entries.add(ModItems.BEER);
+                        entries.add(ModItems.SUPERWHEAT);
+
                     }).build());
 
 

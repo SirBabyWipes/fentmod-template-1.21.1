@@ -1,6 +1,9 @@
 package net.lilbabywipes.fentmod.effects;
 
 import net.lilbabywipes.fentmod.FentMod;
+import net.lilbabywipes.fentmod.data.ModServerData;
+import net.lilbabywipes.fentmod.data.PlayerData;
+import net.lilbabywipes.fentmod.data.Substances;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
@@ -45,5 +48,10 @@ public class Drunk extends StatusEffect {
     private static double max = 0.25;
     private static double getRandomOffset() {
         return min + Math.random() * (max - min);
+    }
+
+    @Override
+    public void onRemoved(AttributeContainer attributeContainer) {
+        super.onRemoved(attributeContainer);
     }
 }

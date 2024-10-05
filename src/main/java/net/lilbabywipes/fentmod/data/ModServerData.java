@@ -54,7 +54,7 @@ public class ModServerData extends PersistentState {
                 break;
             }
             case Substances.ALC -> {
-                data.alcDeep+=1;
+                data.alcDeep+=0.5;
                 break;
             }
         }
