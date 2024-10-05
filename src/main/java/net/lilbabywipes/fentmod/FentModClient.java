@@ -29,7 +29,7 @@ public class FentModClient implements ClientModInitializer {
     public void onInitializeClient() {
         HudRenderCallback.EVENT.register(new SalviaHudEffect());
         ClientPlayNetworking.registerGlobalReceiver(SalviaHighPayload.ID, (payload, context) -> {
-            active = payload.active();
+            //active = payload.active();
         });
 
         EntityRendererRegistry.register(ModEntities.dirtyCrackPipeEntityType, (context) ->
