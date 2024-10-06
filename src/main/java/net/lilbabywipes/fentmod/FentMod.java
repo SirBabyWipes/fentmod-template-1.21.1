@@ -10,6 +10,7 @@ import net.lilbabywipes.fentmod.entities.ModEntities;
 import net.lilbabywipes.fentmod.events.ModEvents;
 import net.lilbabywipes.fentmod.item.ModItems;
 import net.lilbabywipes.fentmod.networking.ModNetworking;
+import net.lilbabywipes.fentmod.sound.ModSounds;
 import net.lilbabywipes.fentmod.utils.ModCustomTrades;
 import net.minecraft.server.MinecraftServer;
 import org.slf4j.Logger;
@@ -33,5 +34,6 @@ public class FentMod implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModServerData.intialize();
+		ModSounds.initialize();
 	}
 }

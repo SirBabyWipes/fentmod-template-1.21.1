@@ -2,6 +2,7 @@ package net.lilbabywipes.fentmod.effects;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.lilbabywipes.fentmod.sound.ModSounds;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.*;
 import net.minecraft.entity.LivingEntity;
@@ -16,8 +17,12 @@ public class WeedHigh extends StatusEffect {
     }
 
     @Override
-    public boolean applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
+    public void onApplied(LivingEntity entity, int amplifier) {
+        super.onApplied(entity, amplifier);
+    }
 
+    @Override
+    public boolean applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
         if(!pLivingEntity.getWorld().isClient) {
 
         }

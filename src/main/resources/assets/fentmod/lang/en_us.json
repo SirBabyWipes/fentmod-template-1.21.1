@@ -13,7 +13,9 @@
   "item.fentmod.beer": "Beer",
   "item.fentmod.narcan": "Narcan",
   "item.fentmod.superwheat": "SUPERWHEAT",
-
+  "item.fentmod.bongsalvia": "Bong",
+  "item.fentmod.morphine": "Morphine",
+  "item.fentmod.johnsitem": "Johns Item",
 
 
   "effect.fentmod.overdose": "Fent High",

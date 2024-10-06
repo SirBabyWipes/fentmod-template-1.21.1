@@ -6,15 +6,9 @@ import net.lilbabywipes.fentmod.block.ModBlocks;
 import net.lilbabywipes.fentmod.item.ModItems;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Items;
-import net.minecraft.item.PotionItem;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.Potions;
-import net.minecraft.recipe.ShapedRecipe;
-import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 
@@ -41,6 +35,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModItems.WEED)
                 .input(ModItems.BONGEMPTY)
                 .criterion(hasItem(ModItems.WEED), conditionsFromItem(ModItems.WEED))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BONGSALVIA, 1)
+                .input(ModItems.SALVIA)
+                .input(ModItems.BONGEMPTY)
+                .criterion(hasItem(ModItems.SALVIA), conditionsFromItem(ModItems.SALVIA))
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SUPERWHEAT, 1)
@@ -78,6 +78,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.COCAINE), conditionsFromItem(ModItems.COCAINE))
                 .offerTo(exporter);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SALVIA_SEEDS, 1)
+                .input(ModItems.SALVIA)
+                .criterion(hasItem(ModItems.SALVIA), conditionsFromItem(ModItems.SALVIA))
+                .offerTo(exporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GRINDER, 1)
                 .pattern(" # ")
                 .pattern("# #")
@@ -102,6 +107,24 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', ModItems.SUPERWHEAT)
                 .input('#', Items.WATER_BUCKET)
                 .criterion(hasItem(ModItems.SUPERWHEAT), conditionsFromItem(ModItems.SUPERWHEAT))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MORPHINE, 1)
+                .pattern("SSS")
+                .pattern("S#S")
+                .pattern("SSS")
+                .input('S', ModItems.FENT)
+                .input('#', Items.NETHER_STAR)
+                .criterion(hasItem(ModItems.FENT), conditionsFromItem(ModItems.FENT))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.JOHNSITEM, 1)
+                .pattern("SSS")
+                .pattern("S#S")
+                .pattern("SSS")
+                .input('S', Items.DIRT)
+                .input('#', Items.OAK_BOAT)
+                .criterion(hasItem(ModItems.JOHNSITEM), conditionsFromItem(ModItems.JOHNSITEM))
                 .offerTo(exporter);
     }
 }

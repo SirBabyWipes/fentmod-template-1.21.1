@@ -1,0 +1,14 @@
+{
+  "blade": {
+    "subtitle": "sounds.fentmod.blade",
+    "sounds": [
+      "fentmod:blade"
+    ]
+  },
+  "bigxtheplug": {
+    "subtitle": "sounds.fentmod.bigxtheplug",
+    "sounds": [
+      "fentmod:bigxtheplug"
+    ]
+  }
+}
