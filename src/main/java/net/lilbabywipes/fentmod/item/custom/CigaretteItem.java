@@ -1,71 +1,73 @@
 package net.lilbabywipes.fentmod.item.custom;
 
 import net.lilbabywipes.fentmod.data.ModServerData;
+import net.lilbabywipes.fentmod.data.PlayerData;
 import net.lilbabywipes.fentmod.data.Substances;
+import net.lilbabywipes.fentmod.effects.ModEffects;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
-public class CocaineItem extends Item {
-    private static final int MAX_USE_TIME = 7;
+import javax.print.attribute.Attribute;
+import java.util.jar.Attributes;
 
-    public CocaineItem(Settings settings) {
+public class CigaretteItem extends Item {
+    private static final int MAX_USE_TIME = 40;
+
+    public CigaretteItem(Settings settings) {
         super(settings);
     }
 
+
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        super.finishUsing(stack, world, user);
+        ModServerData.updatePlayerData(user, Substances.NIC);
+        user.sendMessage(Text.literal("finished using"));
         if (user instanceof ServerPlayerEntity serverPlayerEntity) {
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
         }
 
         if (!world.isClient) {
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 5*20, 4));
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 5*20, 4));
+
         }
 
-        ModServerData.updatePlayerData(user, Substances.COCAIN);
         if (user instanceof PlayerEntity playerEntity && !playerEntity.isCreative()) {
             stack.decrement(1);
         }
-        return stack;
 
+        if (user instanceof PlayerEntity playerEntity) {
+            world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), SoundEvents.ENTITY_BLAZE_BURN, playerEntity.getSoundCategory(), 1.0F, 1.0F);
+        }
+        super.finishUsing(stack, world, user);
+        return stack;
     }
     @Override
     public int getMaxUseTime(ItemStack stack, LivingEntity user) {
-        return 7;
+        return 40;
     }
 
     @Override
     public UseAction getUseAction(ItemStack stack) {
-        return UseAction.DRINK;
+        return UseAction.BOW;
     }
 
-    @Override
-    public SoundEvent getDrinkSound() {
-        return SoundEvents.ENTITY_SNIFFER_SNIFFING;
-    }
-
-    @Override
-    public SoundEvent getEatSound() {
-        return SoundEvents.ENTITY_SNIFFER_SNIFFING;
-    }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {

@@ -7,6 +7,7 @@ import net.lilbabywipes.fentmod.effects.ModEffects;
 import net.lilbabywipes.fentmod.utils.ModConstants;
 import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -40,7 +41,7 @@ public class FentItem extends Item {
             );
 
         }
-
+        user.sendMessage(Text.literal("finished using"));
         ModServerData.updatePlayerData(user, Substances.FENT);
 
         return stack;

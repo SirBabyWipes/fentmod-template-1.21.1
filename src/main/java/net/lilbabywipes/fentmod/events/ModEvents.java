@@ -1,25 +1,33 @@
 package net.lilbabywipes.fentmod.events;
 
+import com.mojang.brigadier.LiteralMessage;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.lilbabywipes.fentmod.FentMod;
 import net.lilbabywipes.fentmod.data.ModServerData;
+import net.lilbabywipes.fentmod.data.PlayerData;
 import net.lilbabywipes.fentmod.item.ModItems;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 
 public class ModEvents {
+    public static int nicBonus = 0;
     public static final Identifier FERN_LOOT_TABLE = Blocks.FERN.getLootTableKey().getValue();
     public static final Identifier FORTRESS_LOOT_TABLE = Identifier.of("minecraft", "chests/nether_bridge");
     public static void initialize() {
         ServerLifecycleEvents.SERVER_STARTED.register(s -> FentMod.server = s);
+
 
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             if(server.getTicks() % (20 * 60 * 5) == 0) {
@@ -31,6 +39,20 @@ public class ModEvents {
                 });
             }
         });
+
+        AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
+            PlayerData data = ModServerData.getPlayerData(player.getUuid());
+            player.sendMessage(Text.literal("nicHit value: " + data.nicHit));
+            nicBonus = data.nicHit;
+            if (!player.isSpectator() && data.nicHit != 0) {
+                entity.damage(player.getDamageSources().mobAttack(player), nicBonus);
+                data.nicHit = 0;
+            }
+
+            return ActionResult.PASS;
+        });
+
+
 
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
             if(source.isBuiltin() && FERN_LOOT_TABLE.equals(key.getValue())) {

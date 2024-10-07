@@ -38,6 +38,7 @@ public class ModGroups {
                         entries.add(ModItems.BONGSALVIA);
                         entries.add(ModItems.MORPHINE);
                         entries.add(ModItems.JOHNSITEM);
+                        entries.add(ModItems.CIGARETTE);
 
                     }).build());
 

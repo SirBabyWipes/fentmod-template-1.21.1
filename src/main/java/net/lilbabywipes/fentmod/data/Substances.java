@@ -5,4 +5,5 @@ public enum Substances {
     WEED,
     FENT,
     ALC,
+    NIC
 }

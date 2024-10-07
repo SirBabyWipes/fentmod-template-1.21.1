@@ -57,6 +57,11 @@ public class ModServerData extends PersistentState {
                 data.alcDeep+=0.5;
                 break;
             }
+
+            case Substances.NIC -> {
+                data.nicHit+=1;
+                break;
+            }
         }
 
         updatePlayerData(player, data);

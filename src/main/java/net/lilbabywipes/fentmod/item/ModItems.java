@@ -27,6 +27,7 @@ public class ModItems {
     public static final Item COCAINE = registerItem("cocaine", new CocaineItem(new Item.Settings()));
     public static final Item BEER = registerItem("beer", new BeerItem(new Item.Settings().maxCount(16)));
     public static final Item BONGSALVIA = registerItem("bongsalvia", new BongSalviaItem(new Item.Settings().maxCount(1)));
+    public static final Item CIGARETTE = registerItem("cigarette", new CigaretteItem(new Item.Settings().maxCount(16)));
 
     public static final Item FENT = registerItem("fent", new FentItem(new Item.Settings()));
 
