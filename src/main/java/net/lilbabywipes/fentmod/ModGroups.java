@@ -39,7 +39,8 @@ public class ModGroups {
                         entries.add(ModItems.MORPHINE);
                         entries.add(ModItems.JOHNSITEM);
                         entries.add(ModItems.CIGARETTE);
-
+                        entries.add(ModItems.TOBACCO_LEAVES);
+                        entries.add(ModItems.DRIED_TABACCO_LEAVES);
                     }).build());
 
 

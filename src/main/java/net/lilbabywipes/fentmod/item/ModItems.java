@@ -20,6 +20,7 @@ public class ModItems {
     public static final Item GROUNDWEED = registerItem("groundweed", new Item(new Item.Settings()));
     public static final Item SALVIA = registerItem("salvia", new Item(new Item.Settings()));
     public static final Item SUPERWHEAT = registerItem("superwheat", new Item(new Item.Settings()));
+    public static final Item DRIED_TABACCO_LEAVES = registerItem("driedtobaccoleaves", new Item(new Item.Settings()));
 
 
     public static final Item JOINT = registerItem("joint", new JointItem(new Item.Settings().maxCount(1)));
@@ -43,6 +44,8 @@ public class ModItems {
             new AliasedBlockItem(ModBlocks.COCA_CROP, new Item.Settings()));
     public static final Item SALVIA_SEEDS = registerItem("salvia_seeds",
             new AliasedBlockItem(ModBlocks.SALVIA_CROP, new Item.Settings()));
+
+    public static final Item TOBACCO_LEAVES = registerItem("tobacco_leaves", new TobaccoLeaves(new Item.Settings()));
 
 
 

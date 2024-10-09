@@ -45,5 +45,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         );
 
         addDrop(ModBlocks.SALVIA_CROP, cropDrops(ModBlocks.SALVIA_CROP, ModItems.SALVIA, ModItems.SALVIA_SEEDS, salviaBuilder));
+
+        //addDrop(ModBlocks.TOBACCO_CROP, cropDrops(ModBlocks.TOBACCO_CROP, M))
     }
 }

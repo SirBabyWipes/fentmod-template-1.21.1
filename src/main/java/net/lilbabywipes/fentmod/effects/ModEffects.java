@@ -25,6 +25,8 @@ public class ModEffects {
 
         WEED = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "high"), new WeedHigh()
                 .addAttributeModifier(EntityAttributes.GENERIC_LUCK, Identifier.of("effect.high"), 100, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+                .addAttributeModifier(EntityAttributes.GENERIC_OXYGEN_BONUS, Identifier.of("effect.weed"), 1024, EntityAttributeModifier.Operation.ADD_VALUE)
+                .addAttributeModifier(EntityAttributes.PLAYER_SUBMERGED_MINING_SPEED, Identifier.of("effect.weed"), 10, EntityAttributeModifier.Operation.ADD_VALUE)
         );
 
         SALVIA = Registry.register(Registries.STATUS_EFFECT, Identifier.of(FentMod.MOD_ID, "salvia_high"), new SalviaHigh());

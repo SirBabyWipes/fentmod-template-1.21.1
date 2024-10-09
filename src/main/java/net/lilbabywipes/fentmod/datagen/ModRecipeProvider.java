@@ -8,10 +8,12 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
@@ -21,7 +23,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
-        //offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.COCAINE, RecipeCategory.DECORATIONS, ModBlocks.COCAINE_BLOCK);
+        //smeltables
+        List<ItemConvertible> TOBACCO_SMELTABLES = List.of(ModItems.TOBACCO_LEAVES);
+        offerSmelting(exporter, TOBACCO_SMELTABLES, RecipeCategory.MISC, ModItems.DRIED_TABACCO_LEAVES, 0.25f, 150, "tobacco");
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BONGEMPTY, 1)
                 .pattern("# #")
@@ -83,6 +87,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.SALVIA), conditionsFromItem(ModItems.SALVIA))
                 .offerTo(exporter);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CIGARETTE, 1)
+                .input(ModItems.DRIED_TABACCO_LEAVES)
+                .input(Items.PAPER)
+                .offerTo(exporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GRINDER, 1)
                 .pattern(" # ")
                 .pattern("# #")
@@ -126,5 +135,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', Items.OAK_BOAT)
                 .criterion(hasItem(ModItems.JOHNSITEM), conditionsFromItem(ModItems.JOHNSITEM))
                 .offerTo(exporter);
+
     }
 }

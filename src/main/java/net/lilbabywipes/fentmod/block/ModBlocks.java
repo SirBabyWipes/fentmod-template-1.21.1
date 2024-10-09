@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.lilbabywipes.fentmod.FentMod;
 import net.lilbabywipes.fentmod.block.custom.CocaCropBlock;
 import net.lilbabywipes.fentmod.block.custom.CocaineCarpetBlock;
+import net.lilbabywipes.fentmod.block.custom.TobaccoCropBlock;
 import net.lilbabywipes.fentmod.block.custom.WeedCropBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
@@ -29,10 +30,15 @@ public class ModBlocks {
 
     public static final CropBlock WEED_CROP = Registry.register(Registries.BLOCK, Identifier.of(FentMod.MOD_ID, "weed_crop"),
             new WeedCropBlock(Blocks.WHEAT.getSettings())); // same settings as wheat
+
     public static final CropBlock COCA_CROP = Registry.register(Registries.BLOCK, Identifier.of(FentMod.MOD_ID, "coca_crop"),
             new CocaCropBlock(Blocks.WHEAT.getSettings())); // same settings as wheat
+
     public static final CropBlock SALVIA_CROP = Registry.register(Registries.BLOCK, Identifier.of(FentMod.MOD_ID, "salvia_crop"),
             new CocaCropBlock(Blocks.WHEAT.getSettings())); // same settings as wheat
+
+    public static final CropBlock TOBACCO_CROP = Registry.register(Registries.BLOCK, Identifier.of(FentMod.MOD_ID, "tobacco_crop"),
+            new TobaccoCropBlock(Blocks.WHEAT.getSettings()));
 
 
 
